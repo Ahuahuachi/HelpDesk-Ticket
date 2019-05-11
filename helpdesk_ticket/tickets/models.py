@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 
 class Ticket(models.Model):
     """ Ticket model """
+
+    def __str__(self):
+        return self.subject
+
     subject = models.CharField(null=False, max_length=255)
     description = models.TextField(null=False)
-
     fk_status = models.ForeignKey(
         'Status',
         null=True,
@@ -30,6 +33,7 @@ class Ticket(models.Model):
         null=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        blank=True,
     )
     fk_attachments = models.ForeignKey(
         'Attachment',
