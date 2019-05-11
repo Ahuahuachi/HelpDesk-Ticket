@@ -1,29 +1,44 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Ticket(models.Model):
     """ Ticket model """
+
+    REQUESTER = User
+    AGENT = User
     subject = models.CharField(null=False, max_length=255)
     description = models.TextField(null=False)
+
     fk_status = models.ForeignKey(
         'Status',
+        null=True,
         on_delete=models.SET_NULL,
+        related_name='status_list',
     )
     fk_priority = models.ForeignKey(
-        'Priorities',
+        'Priority',
+        null=True,
         on_delete=models.SET_NULL,
+        related_name='priorities',
     )
     fk_requester = models.ForeignKey(
-        'Users',
+        User,
+        null=True,
         on_delete=models.SET_NULL,
+        related_name='+',
     )
     fk_agent = models.ForeignKey(
-        'Users',
+        User,
+        null=True,
         on_delete=models.SET_NULL,
+        related_name='+',
     )
     fk_attachments = models.ForeignKey(
-        'Attachments',
+        'Attachment',
+        null=True,
         on_delete=models.SET_NULL,
+        related_name='attachments',
     )
     created = models.DateTimeField(
         auto_now_add=True,
@@ -33,45 +48,27 @@ class Ticket(models.Model):
 class Status(models.Model):
     """ Status model """
 
-    OPEN = 'OP'
-    PENDING = 'PE'
-    RESOLVED = 'RE'
-    CLOSED = 'CL'
-    STATUS_LIST = (
-        (OPEN, 'Open'),
-        (PENDING, 'Pending'),
-        (RESOLVED, 'Resolved'),
-        (CLOSED, 'Closed'),
-    )
+    def __str__(self):
+        return self.status
 
     status = models.CharField(
         null=False,
-        max_length=2,
-        choices=STATUS_LIST,
-        default=OPEN,
+        max_length=255
     )
 
 
-class Priorities(models.Model):
-    """ Priorities model """
+class Priority(models.Model):
+    """ Priority model """
 
-    LOW = 'LO'
-    HIGH = 'HI'
-    URGENT = 'UR'
-    PRIORITIES_LIST = (
-        (LOW, 'Low'),
-        (HIGH, 'High'),
-        (URGENT, 'Urgent'),
-    )
+    def __str__(self):
+        return self.priority
 
     priority = models.CharField(
         null=False,
-        max_length=2,
-        choices=PRIORITIES_LIST,
-        default=LOW,
+        max_length=255
     )
 
 
-class Attachments(models.Model):
-    """ Attachments model"""
-    attachments = models.URLField(null=True)
+class Attachment(models.Model):
+    """ Attachment model"""
+    attachment = models.URLField(null=True)
