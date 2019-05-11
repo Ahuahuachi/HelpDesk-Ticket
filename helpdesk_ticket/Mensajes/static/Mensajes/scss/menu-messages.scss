@@ -1,0 +1,45 @@
+@import "btn";
+@import "content";
+@import "foot";
+@import "jumbotron1";
+@import "logo";
+@import "main";
+@import "menu1";
+@import "menu2";
+@import "text-menu";
+@import "variables";
+
+#main {
+    @include main
+}
+#menu1{
+    @include menu1
+}
+#logo{
+    @include logo
+    }
+.btn{
+    @include btn
+}
+.bttn{
+    @include btn2
+}
+#menu-content{
+    height: 84vh;
+}
+#menu2{
+    @include menu2
+}
+#tex-menu{
+    @include text-menu
+}
+#content{
+    @include content
+}
+.jumbotron{
+    @include jumbotron1
+}
+
+#foot{
+    @include foot
+}
