@@ -36,6 +36,7 @@ class Ticket(models.Model):
         null=True,
         on_delete=models.SET_NULL,
         related_name='attachments',
+        blank=True,
     )
     created = models.DateTimeField(
         auto_now_add=True,
