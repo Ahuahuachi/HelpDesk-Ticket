@@ -4,9 +4,6 @@ from django.contrib.auth.models import User
 
 class Ticket(models.Model):
     """ Ticket model """
-
-    REQUESTER = User
-    AGENT = User
     subject = models.CharField(null=False, max_length=255)
     description = models.TextField(null=False)
 
