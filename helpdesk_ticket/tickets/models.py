@@ -55,7 +55,7 @@ class Status(models.Model):
 
     status = models.CharField(
         null=False,
-        max_length=255
+        max_length=255,
     )
 
 
