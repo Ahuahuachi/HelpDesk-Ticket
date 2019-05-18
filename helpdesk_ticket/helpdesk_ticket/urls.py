@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from dashboard import views as dashboard_views
 from userprofile import views as userprofile_views
+from userprofile import views as editprofile_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', dashboard_views.get_dashboard),
     path('userprofile/', userprofile_views.get_userprofile),
-   
+    path('editprofile/', editprofile_views.get_editprofile),
 ]

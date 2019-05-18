@@ -34,31 +34,44 @@
                             <div class="row">
                                 <div class="col-4 form-group">
                                     <label for="user-name1">User Name</label>
-                                    <span class="input-group-text">Example name</span>
+                                    <input type="text" class="form-control" id="user-name1" aria-describedby="user-name" placeholder="Enter User Name">
                                     <small id="user-name2" class="form-text text-muted">Verify that the user name is correct.</small>
                                 </div>   
                                 <div id="departament" class="col-4 form-group">
                                     <label for="departament"> Departament </label>
-                                    <span class="input-group-text">Example Departament</span>
+                                    <select id="input-departament" class="form-control">
+                                        <option selected> Choose... </option>
+                                        <option> New Business </option>
+                                        <option> Partners </option>
+                                        <option> Workshop </option>
+                                        <option> Project Manager  </option>
+                                        <option> Administration </option>
+                                        <option> IT </option>
+                                    </select>
                                 </div>    
                                 <div class="col-4 form-group">
                                     <label for="email">Email address</label>
-                                    <span class="input-group-text">Example@email.com</span>
+                                    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter @email">
                                     <small id="emailHelp" class="form-text text-muted">Verify that the email is correct.</small>
                                 </div>
                             </div>
                             <div class="row">    
                                 <div class="col form-group">
                                     <label for="name1">Name</label>
-                                    <span class="input-group-text">Example First Name</span>
+                                    <input type="text" class="form-control" id="name1" aria-describedby="name" placeholder="Enter Name">
                                     <small id="name2" class="form-text text-muted">Verify that the name is correct.</small>
-                                    <button id="send" type="submit" class="btn btn-danger">Edit</button>
+                                    <button id="send" type="submit" class="btn btn-danger">Submit</button>
                                 </div>
                                 <div class="col form-group">
                                     <label for="last-name1">Last Name</label>
-                                    <span class="input-group-text">Example Last Name</span>
+                                    <input type="text" class="form-control" id="last-name1" aria-describedby="name" placeholder="Enter Last Name">
                                     <small id="last-name2" class="form-text text-muted">Verify that the last name is correct.</small>
                                 </div> 
+                                <div class="col form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <small id="password1" class="form-text text-muted">Verify your password.</small>
+                                </div>
                             </div>
                         </form>
                     </div>

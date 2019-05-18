@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def get_userprofile (request):
     return render (request, 'userprofile.html')
+
+def get_editprofile (request):
+    return render (request, 'editprofile.html')
