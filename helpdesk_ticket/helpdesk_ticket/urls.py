@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from Mensajes import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Mensajes/', views.get_Mensaje)
 ]
+

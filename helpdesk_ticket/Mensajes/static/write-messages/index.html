@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Help Desk Ticket</title>
-    <!-- <link rel="stylesheet" href="../menu-messages/css/menu-messages.css"> -->
-    <link rel="stylesheet" href="{% static "/menu-messages/css/menu-messages.css" %}">
-    
+    <link rel="stylesheet" href="../write-messages/css/write-messages.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
    <div id="main" class="container-fluid">
        <div id="head-menu1" class="row">
             <div id="menu1" class="col-12 navbar">
-                <!-- <img id="logo" class="img" src="../menu-messages/image/help-desk-icon-png-4.png" alt="Logo"> -->
-                <img id="logo" class="img" src="{% static "/menu-messages/image/help-desk-icon-png-4.png" %}" alt="Logo">
+                <img id="logo" class="img" src="../write-messages/image/help-desk-icon-png-4.png" alt="Logo">
                 <a class= "bttn btn btn-primary" href= "../menu-messages/index.html" role= "button" > Messages </a>
                 <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
                 <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
@@ -26,15 +22,23 @@
         <div id="menu-content" class="row">
             <div id="menu2" class="col-2 navbar flex-column">
                 <p id="tex-menu" class="text">Menu Messages</p>
-                <a class= "bttn btn btn-vertical btn-outline-success" href="{% static "/write-messages/index.html" %}" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Write </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href="{% static "/read-messages/index.html" %}" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Read </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href="{% static "/chat-messages/index.html" %}" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../write-messages/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Write </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../read-messages/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Read </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../chat-messages/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
             </div>
             <div id="content" class="col-10">
                 <div class="jumbotron">
                     <div class="container">
-                        <h1 class="display-4">Select option!</h1>
-                        <p class="lead">The options are from menu <span class="badge badge-pill badge-info">side</span>side or <span class="badge badge-pill badge-info">top</span> bar.</p>
+                        <form>
+                            <div id="body-message" class="form-group">
+                              <label for="text"> Write your message!</label>
+                              <input type="message" class="form-control form-control-lg" id="write-your-message" aria-describedby="message" placeholder="Enter your message here!">
+                              <small id="text-message" class="form-text text-muted">Write all your ask questions here.</small>
+                            </div>
+                            <div id="submit-messsage" class="container">
+                                <button  type="submit" class="btn btn-danger">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>        

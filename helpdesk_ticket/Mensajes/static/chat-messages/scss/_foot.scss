@@ -1,0 +1,10 @@
+@mixin foot {
+    display: flex;
+    position: static;
+    background-color: $back5;
+    color: $back1;
+    justify-content: center;
+    #text-foot{
+        padding: 5px;
+    }
+}
