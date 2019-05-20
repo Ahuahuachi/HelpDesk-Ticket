@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    {{mensajes}}
-    
+    <!-- {{mensajes}} -->
    <div id="main" class="container-fluid">
        <div id="head-menu1" class="row">
             <div id="menu1" class="col-12 navbar">
@@ -27,7 +26,7 @@
                 <p id="tex-menu" class="text">Menu Messages</p>
                 <a class= "bttn btn btn-vertical btn-outline-success" href= "../Nuevo_Mensaje/" role= "button" data-toggle="tooltip" data-placement="right" title="Descriptive text."> Write </a>
                 <a class= "bttn btn btn-vertical btn-outline-success" href= "" role= "button" data-toggle="tooltip" data-placement="right" title="Descriptive text."> Read </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../chat-messages/index.html" role= "button" data-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Chat_Mensaje/" role= "button" data-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
             </div>
             <div id="content" class="col-10">
                 <div class="jumbotron">
@@ -37,8 +36,8 @@
                           {%for mensaje in mensajes%}
                           <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small>Fecha de Creacion</small>
+                                <h5 class="mb-1">Mensaje # {{forloop.counter}}</h5>
+                                <small>{{mensaje.created_at}}</small>
                               </div>
                               <p class="mb-1">{{mensaje.mensaje}}</p>
                               <small></small>

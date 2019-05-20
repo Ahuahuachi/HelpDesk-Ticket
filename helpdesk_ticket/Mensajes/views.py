@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Mensajes
 from .forms import MensajeForm
+from django.utils import timezone
 
 # Create your views here.
 
@@ -11,6 +12,9 @@ def get_MensajeEntrada(request):
     print(mensajes)
     
     return render(request,'index.html')
+
+def get_Chat(request):
+    return render(request,'chat_messages.html')
 
 def get_Mensaje(request):
     mensajes = Mensajes.objects.all()

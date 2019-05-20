@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Mensajes/', views.get_MensajeEntrada),
     path('Leer_Mensajes/', views.get_Mensaje),
-    path('Nuevo_Mensaje/', views.create_Mensaje)
-
+    path('Nuevo_Mensaje/', views.create_Mensaje),
+    path('Chat_Mensaje/',views.get_Chat)
 ]
 
