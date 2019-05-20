@@ -4,6 +4,7 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+    atomic=False
 
     dependencies = [
         ('tickets', '0002_auto_20190511_1808'),

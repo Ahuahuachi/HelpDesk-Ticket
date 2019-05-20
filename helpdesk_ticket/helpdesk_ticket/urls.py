@@ -19,7 +19,11 @@ from Mensajes import views
 
 
 urlpatterns = [
+    path('', views.get_MensajeEntrada),
     path('admin/', admin.site.urls),
-    path('Mensajes/', views.get_Mensaje)
+    path('Mensajes/', views.get_MensajeEntrada),
+    path('Leer_Mensajes/', views.get_Mensaje),
+    path('Nuevo_Mensaje/', views.create_Mensaje)
+
 ]
 
