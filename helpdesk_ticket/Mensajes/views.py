@@ -25,6 +25,9 @@ def get_Mensaje(request):
 def create_Mensaje(request):
     if request.method == "GET":
         form = MensajeForm()
+        # print(form)
+        # print(form['mensaje'])
+        formMensaje = form['mensaje']
         return render(request,'writemessage.html',{'form':form})
     elif request.method == "POST":
         form = MensajeForm(request.POST)
@@ -34,7 +37,7 @@ def create_Mensaje(request):
             mi_forma.save()
             print("DESPUES DE SALVAR")
             # form.save()
-            return redirect('/Mensajes')
+            return redirect('/Leer_Mensajes')
         else:
             print("ERROR EN CAPTURA DE MENSAJE")
 

@@ -1,8 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html>
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Help Desk Ticket</title>
@@ -14,11 +14,47 @@
     
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <style type="text/css">
+   /* html {
+      width: 100%;
+      height: 100%;
+   }
 
-</head>
-<body>
-    
-   <script type="text/babel">
+   body {
+      background: #336699;
+      background: radial-gradient(#003399, #336699);
+   } */
+
+   #example {
+      padding: 1rem;
+   }
+   </style>
+
+<div id="main" class="container-fluid">
+   <div id="head-menu1" class="row">
+        <div id="menu1" class="col-12 navbar">
+            <img id="logo" class="img" src="{% static "/chat-messages/image/help-desk-icon-png-5.png"  %}" alt="Logo">
+            <a class= "bttn btn btn-primary" href= "../Mensajes/" role= "button" > Messages </a>
+            <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
+            <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
+            <a class= "bttn btn btn-primary" href= "../log-in/index.html" role= "button" > Log out </a>
+        </div>
+    </div>
+    <div id="menu-content" class="row">
+        <div id="menu2" class="col-2 navbar flex-column">
+            <p id="tex-menu" class="text">Menu Messages</p>
+            <a class= "bttn btn btn-vertical btn-outline-success" href= "../Nuevo_Mensaje/" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Write </a>
+            <a class= "bttn btn btn-vertical btn-outline-success" href= "../Leer_Mensajes/" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Read </a>
+            <a class= "bttn btn btn-vertical btn-outline-success" href= "" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
+        </div>
+
+
+
+    <div id="root"></div>
+    <script type="text/babel">
+      
       var d = new Date().toLocaleString();
 
       var ChatMessage = React.createClass({
@@ -65,13 +101,13 @@
      },
      handleSubmit(e) {
         e.preventDefault();
-        if(this.state.inputText==""){return false;}
+        
         var nextMessages = this.state.messages.concat([{ message: this.state.inputText, timestamp: d }]);
         var nextInputText = '';
         this.setState({ messages: nextMessages, inputText: nextInputText });
      },
      onChange(e) {
-         this.setState({inputText: e.target.value});
+        this.setState({inputText: e.target.value});
      },
      render() {
         var windowStyles = {
@@ -102,7 +138,7 @@
               <ChatMessageHistory messages={this.state.messages} />
               <form style={formStyles} onSubmit={this.handleSubmit}>
                  <input style={inputStyles} type="text" onChange={this.onChange} value={this.state.inputText} />
-                 <button  style={btnStyles}>Send</button>
+                 <button style={btnStyles}>Send</button>
               </form>
            </div>
         );
@@ -114,40 +150,21 @@
      document.getElementById('example')
   );
 
-   </script>
-    
-   <div id="main" class="container-fluid">
-       <div id="head-menu1" class="row">
-            <div id="menu1" class="col-12 navbar">
-                <img id="logo" class="img" src="{% static "/chat-messages/image/help-desk-icon-png-4.png"  %}" alt="Logo">
-                <a class= "bttn btn btn-primary" href= "../Mensajes/" role= "button" > Messages </a>
-                <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
-                <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
-                <a class= "bttn btn btn-primary" href= "../log-in/index.html" role= "button" > Log out </a>
-            </div>
-        </div>
-        <div id="menu-content" class="row">
-            <div id="menu2" class="col-2 navbar flex-column">
-                <p id="tex-menu" class="text">Menu Messages</p>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Nuevo_Mensaje/" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Write </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Leer_Mensajes/" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Read </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Chat </a>
-            </div>
-            <div id="content" class="col-10">
-                <div class="jumbotron">
-                    <div id="chat-example" class="container">
-                        <div id="example"></div>
-                    </div>
-                </div>
-            </div>        
-        </div>
-        <div id="footering" class="row">
-            <div id="foot" class="col-12">
-                <p id="text-foot">Administration ticket system</p>
-            </div>
-        </div>
-        <button  class="btn btn-danger" >Boton rojo</button>
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
 
-   </div>
-</body>
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+
+    <div id="example"></div>
+  </body>
 </html>

@@ -14,6 +14,8 @@ class Mensajes(models.Model):
         null=True,
         on_delete=models.SET_NULL,
         related_name='tickets',
+        # verbose_name='Ticket'
+
     )
 
     mensaje = models.TextField(null=False)
