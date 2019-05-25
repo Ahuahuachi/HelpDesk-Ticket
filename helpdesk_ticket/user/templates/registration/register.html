@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Help Desk Ticket</title>
+    <link rel="stylesheet" href="{% static "user/css/my-profile.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+   <div id="main" class="container-fluid">
+       <div id="head-menu1" class="row">
+            <div id="menu1" class="col-12 navbar">
+                <img id="logo" class="img" src="{% static "user/img/help-desk-icon-png-4.png" %}"  alt="Logo">
+            </div>
+        </div>
+        <div id="menu-content" class="row">
+            <div id="content" class="col-10">
+                <div class="jumbotron">
+                    <div class="container">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                              
+                            <button type="submit" class="btn btn-danger"> Add </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div id="footering" class="row">
+            <div id="foot" class="col-12">
+                <p id="text-foot">Administration ticket system</p>
+            </div>
+        </div>
+
+   </div>
+</body>
+</html>
