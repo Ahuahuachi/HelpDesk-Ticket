@@ -1,0 +1,78 @@
+#main {
+  align-content: stretch; }
+
+#menu1 {
+  display: flex;
+  position: static;
+  background-color: #00171F;
+  justify-content: flex-end; }
+
+#logo {
+  width: 50px;
+  height: 50px;
+  margin: 5px; }
+
+.btn {
+  margin: 5px;
+  padding: 5px;
+  color: #FFFFFF; }
+
+.bttn {
+  width: 130px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  color: #FFFFFF; }
+
+#menu-content {
+  height: 84vh; }
+
+#menu2 {
+  display: flex;
+  background-color: #003459;
+  justify-content: center;
+  align-content: space-between;
+  height: 84vh; }
+
+#tex-menu {
+  color: #FFFFFF;
+  font-weight: 700; }
+
+#content {
+  display: flex;
+  background-color: #FFFFFF;
+  height: 84vh;
+  justify-content: center; }
+
+.jumbotron {
+  height: 80vh;
+  overflow: scroll;
+  margin: 5px;
+  align-self: center;
+  border-radius: 4px;
+  box-shadow: 0px 10px 20px 0px black; }
+
+.display-6 {
+  font-size: 30px;
+  font-weight: 700; }
+
+#information {
+  justify-content: space-around;
+  margin: 20px; }
+  #information #priority {
+    display: flex;
+    justify-content: center;
+    font-weight: 700; }
+  #information #details-input {
+    height: 120px; }
+
+#foot {
+  display: flex;
+  position: static;
+  background-color: #00171F;
+  color: #FFFFFF;
+  justify-content: center; }
+  #foot #text-foot {
+    padding: 5px; }
+
+/*# sourceMappingURL=dashboard.css.map */
