@@ -1,0 +1,4 @@
+.vscode
+helpdesk_ticket/db.sqlite3
+**__pycache__/
+*.py[cod]
