@@ -1,0 +1,49 @@
+html {
+  font-family: Arial, Helvetica, sans-serif; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #00A8E8;
+  min-height: 100vh; }
+
+.box {
+  justify-content: flex-end; }
+
+#header-login {
+  background-color: #00171F;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: right; }
+  #header-login .logo {
+    height: 30px; }
+
+.boxlogin {
+  border-radius: 4px;
+  box-shadow: 0px 4px 20px #00171F;
+  margin: 80px auto;
+  width: 350px; }
+
+input[type="submit"] {
+  margin-top: 15px; }
+
+footer {
+  background-color: #00171F;
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: left;
+  height: 30px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+
+
+  .btn .btn-success{
+    background-color:red;
+    align:center;
+  }
+/*# sourceMappingURL=login.css.map */

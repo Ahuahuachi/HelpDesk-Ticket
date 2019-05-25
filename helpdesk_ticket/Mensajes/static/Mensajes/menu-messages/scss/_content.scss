@@ -1,0 +1,6 @@
+@mixin content {
+    display: flex;
+    background-color: $back1;
+    height: 84vh;
+    justify-content: center;
+}
