@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="list-group">
                             <p id="messages-title" >Ticket: </p>
-                            {%for ticket in ticktes%}
+                            
                                 <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1">{{ticket.subject}}</h5>
@@ -42,12 +42,12 @@
                                     <p class="mb-1">{{ticket.description}}</p>
                                     <small></small>
                                 </a>
-                            {%endfor%}
+                            
                         </div>
 
                         <div class="list-group">
                           <p id="messages-title" >Your messages: </p>
-                          {%for mensaje in mensajes%}
+                          {%for mensaje in messages%}
                           <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">Message # {{forloop.counter}}</h5>

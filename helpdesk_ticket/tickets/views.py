@@ -21,7 +21,7 @@ class SingleTicket(View):
         """ Get ticket by id """
         ticket = Ticket.objects.get(id=ticket_id)
         messages = Mensajes.objects.filter(fk_ticket=ticket_id)
-        return render(request, '', {'ticket': ticket, 'messages': messages})
+        return render(request, 'readticketmessages.html', {'ticket': ticket, 'messages': messages})
 
 
 class NewTicket(View):
