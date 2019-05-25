@@ -45,9 +45,26 @@
   justify-content: center; }
 
 .jumbotron {
+  height: 80vh;
+  overflow: scroll;
+  margin: 5px;
   align-self: center;
   border-radius: 4px;
   box-shadow: 0px 10px 20px 0px black; }
+
+.display-6 {
+  font-size: 30px;
+  font-weight: 700; }
+
+#information {
+  justify-content: space-around;
+  margin: 20px; }
+  #information #priority {
+    display: flex;
+    justify-content: center;
+    font-weight: 700; }
+  #information #details-input {
+    height: 120px; }
 
 #foot {
   display: flex;
@@ -58,4 +75,4 @@
   #foot #text-foot {
     padding: 5px; }
 
-/*# sourceMappingURL=technical.css.map */
+/*# sourceMappingURL=dashboard.css.map */

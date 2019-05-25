@@ -55,8 +55,10 @@ class Status(models.Model):
 
     status = models.CharField(
         null=False,
-        max_length=255
+        max_length=255    
     )
+
+    order = models.IntegerField(null = True, blank = False)
 
 
 class Priority(models.Model):
