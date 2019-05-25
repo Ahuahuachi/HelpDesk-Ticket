@@ -20,14 +20,7 @@ from Mensajes import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    # path('', views.get_MensajeEntrada),
     path('admin/', admin.site.urls),
-    path('Mensajes/', views.get_MensajeEntrada),
-    path('Leer_Mensajes/', views.get_Mensaje),
-    path('Nuevo_Mensaje/', views.create_Mensaje),
-    path('Chat_Mensaje/',views.get_Chat),
-    # path('', include ('user.urls'))
-    path('',auth_views.LoginView.as_view()),
-    path('logout/', auth_views.LogoutView.as_view())
+    path('Mensajes/', include ('Mensajes.urls'))
 ]
 
