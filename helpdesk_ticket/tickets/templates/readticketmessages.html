@@ -45,12 +45,27 @@
                             
                         </div>
 
+                        <form method="post">
+                                {%csrf_token%}
+                                <div id="body-message" class="form-group">
+                                  <label for="text"> Write your message!</label>
+                                  <!-- <input type="message" class="form-control form-control-lg" id="write-your-message" aria-describedby="message" placeholder="Enter your message here!"> -->
+                                  {{form.as_ul}}
+                                  <p><button  type="submit" class="btn btn-danger">Submit</button></p>
+                                  
+                                  <small id="text-message" class="form-text text-muted">Write all your ask questions here.</small>
+                                </div>
+                                <div id="submit-messsage" class="container">
+                                    
+                                </div>
+                            </form>
+
                         <div class="list-group">
                           <p id="messages-title" >Your messages: </p>
                           {%for mensaje in messages%}
                           <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Message # {{forloop.counter}}</h5>
+                                <h5 class="mb-1"></h5>
                                 <small>{{mensaje.created_at}}</small>
                               </div>
                               <p class="mb-1">{{mensaje.mensaje}}</p>

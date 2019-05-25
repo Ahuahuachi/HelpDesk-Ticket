@@ -3,7 +3,9 @@ from django.views.generic import View
 from .models import Ticket, Status, Priority
 from .forms import NewTicketForm
 from Mensajes.models import Mensajes
+from Mensajes.forms import MensajeForm
 
+from django import forms
 
 class Tickets(View):
     """ Tickets view """
@@ -20,8 +22,25 @@ class SingleTicket(View):
     def get(self, request, ticket_id):
         """ Get ticket by id """
         ticket = Ticket.objects.get(id=ticket_id)
-        messages = Mensajes.objects.filter(fk_ticket=ticket_id)
-        return render(request, 'readticketmessages.html', {'ticket': ticket, 'messages': messages})
+        messages = Mensajes.objects.filter(fk_ticket=ticket_id).order_by('-created_at')
+        form = MensajeForm(initial={"fk_ticket":ticket_id})
+        form.fields['fk_ticket'].widget = forms.HiddenInput()
+        
+
+        return render(request, 'readticketmessages.html', {'ticket': ticket, 'messages': messages,'form':form})
+        # formMensaje = form['mensaje']
+        # formTicket_id = form['fk_ticket']
+        # form.fk_ticket = ticket_id
+    
+    def post(self,request,ticket_id):
+        form = MensajeForm(request.POST)
+        if form.is_valid():
+            mi_forma = form.save(commit=False)
+            mi_forma.fk_requester = request.user
+            mi_forma.save()
+            print("DESPUES DE SALVAR")
+            # form.save()
+            return redirect('./'+str(ticket_id))
 
 
 class NewTicket(View):
