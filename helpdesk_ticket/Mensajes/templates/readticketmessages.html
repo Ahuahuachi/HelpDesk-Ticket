@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Help Desk Ticket</title>
+    <link rel="stylesheet" href="{% static "/read-messages/css/read-messages.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <!-- {{mensajes}} -->
+   <div id="main" class="container-fluid">
+       <div id="head-menu1" class="row">
+            <div id="menu1" class="col-12 navbar">
+                <img id="logo" class="img" src="{% static "/write-messages/image/help-desk-icon-png-4.png"  %}" alt="Logo">
+                <a class= "bttn btn btn-primary" href= "../" role= "button" > Messages </a>
+                <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
+                <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
+                <a class= "bttn btn btn-primary" href= "../" role= "button" > Log out </a>
+            </div>
+        </div>
+        <div id="menu-content" class="row">
+            <div id="menu2" class="col-2 navbar flex-column">
+                <p id="tex-menu" class="text">Menu Messages</p>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Nuevo_Mensaje/" role= "button" data-toggle="tooltip" data-placement="right" title="Write a new Message."> Write </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "" role= "button" data-toggle="tooltip" data-placement="right" title="Read Your Messages."> Read </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Chat_Mensaje/" role= "button" data-toggle="tooltip" data-placement="right" title="Chat with us."> Chat </a>
+            </div>
+            <div id="content" class="col-10">
+                <div class="jumbotron">
+                    <div class="container">
+                        <div class="list-group">
+                            <p id="messages-title" >Ticket: </p>
+                            {%for ticket in ticktes%}
+                                <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{ticket.subject}}</h5>
+                                        <small>{{ticket.created}}</small>
+                                    </div>
+                                    <p class="mb-1">{{ticket.description}}</p>
+                                    <small></small>
+                                </a>
+                            {%endfor%}
+                        </div>
+
+                        <div class="list-group">
+                          <p id="messages-title" >Your messages: </p>
+                          {%for mensaje in mensajes%}
+                          <a href="#" tabindex="0" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Message # {{forloop.counter}}</h5>
+                                <small>{{mensaje.created_at}}</small>
+                              </div>
+                              <p class="mb-1">{{mensaje.mensaje}}</p>
+                              <small></small>
+                            </a>
+                            {%endfor%}
+                          </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div id="footering" class="row">
+            <div id="foot" class="col-12">
+                <p id="text-foot">Administration ticket system</p>
+            </div>
+        </div>
+
+   </div>
+</body>
+</html>

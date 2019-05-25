@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Mensajes
+from .models import Ticket
 from .forms import MensajeForm
 from django.utils import timezone
 from django.contrib.auth.models import User #,authenticate, login
@@ -51,8 +52,8 @@ def get_Chat(request):
 def get_Mensaje(request):
     mensajes = Mensajes.objects.all().filter(fk_requester=request.user)
     print(mensajes)
-    
-    return render(request,'readmessages.html',{'mensajes':mensajes})
+    tickets = Ticket.objects.all().filter(id=1)
+    return render(request,'readticketmessages.html',{'mensajes':mensajes,'ticktes':tickets})
 
 @login_required
 def create_Mensaje(request):
