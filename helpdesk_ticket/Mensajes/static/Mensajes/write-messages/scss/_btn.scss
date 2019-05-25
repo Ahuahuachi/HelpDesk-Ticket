@@ -1,0 +1,12 @@
+@mixin btn {
+    margin: 5px;
+    padding: 5px;
+    color: $back1;
+}
+@mixin btn2 {
+    width: 130px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    color: $back1;
+}

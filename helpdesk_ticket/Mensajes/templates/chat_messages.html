@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Help Desk Ticket</title>
+    <link rel="stylesheet" href="{% static "/chat-messages/css/chat-messages.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.min.js"></script>
+    <script src="https://fb.me/react-dom-0.14.0.min.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+<body>
+    
+   <script type="text/babel">
+      var d = new Date().toLocaleString();
+
+      var ChatMessage = React.createClass({
+     render() {
+        return(
+           <p >{this.props.message}<br/>
+           <small>{this.props.timestamp}</small></p>
+        );
+     }
+  });
+
+  var ChatMessageHistory = React.createClass({
+     render() {      
+        var createMessage = function(message, index) {
+           var liStyles = {
+              backgroundColor: ( index % 2 == 1 ) ? '#ddd' : '#efefef',
+              padding: '1rem',
+              borderBottom: '1px solid #ddd'
+           };
+           
+           return <li style={liStyles}><ChatMessage message={message.message} timestamp={message.timestamp} /></li>
+        };
+           
+        var ulStyles = {
+           listStyle: 'none',
+           margin: 0,
+           padding: 0
+        };
+        
+        return <ul style={ulStyles}>{this.props.messages.map(createMessage)}</ul>;
+     }
+  });   
+     
+  var MESSAGES = [
+     { message: 'Bienvenido al Chat!', timestamp: d }                                   
+  ];
+                                             
+  var ChatWindow = React.createClass({
+     getInitialState() {
+        return {
+           messages: MESSAGES,
+           inputText: ''
+        };
+     },
+     handleSubmit(e) {
+        e.preventDefault();
+        if(this.state.inputText==""){return false;}
+        var nextMessages = this.state.messages.concat([{ message: this.state.inputText, timestamp: d }]);
+        var nextInputText = '';
+        this.setState({ messages: nextMessages, inputText: nextInputText });
+     },
+     onChange(e) {
+         this.setState({inputText: e.target.value});
+     },
+     render() {
+        var windowStyles = {
+           maxWidth: '40em',
+           margin: '1rem auto'
+        };
+        
+        var formStyles = {
+           display: 'flex',
+        };
+        
+        var inputStyles = {
+           flex: '1 auto'
+        };
+        
+        var btnStyles = {
+           backgroundColor: '#00d8ff',
+           border: 'none',
+           color: '#336699',
+           textTransform: 'uppercase',
+           letterSpacing: '0.05em',
+           fontWeight: 'bold',
+           fontSize: '0.8em'
+        };
+        
+        return (
+           <div style={windowStyles}>
+              <ChatMessageHistory messages={this.state.messages} />
+              <form style={formStyles} onSubmit={this.handleSubmit}>
+                 <input style={inputStyles} type="text" onChange={this.onChange} value={this.state.inputText} />
+                 <button  style={btnStyles}>Send</button>
+              </form>
+           </div>
+        );
+     }
+  });
+
+  ReactDOM.render(
+     <ChatWindow />,
+     document.getElementById('example')
+  );
+
+   </script>
+    
+   <div id="main" class="container-fluid">
+       <div id="head-menu1" class="row">
+            <div id="menu1" class="col-12 navbar">
+                <img id="logo" class="img" src="{% static "/chat-messages/image/help-desk-icon-png-4.png"  %}" alt="Logo">
+                <a class= "bttn btn btn-primary" href= "../" role= "button" > Messages </a>
+                <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
+                <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
+                <a class= "bttn btn btn-primary" href= "../" role= "button" > Log out </a>
+            </div>
+        </div>
+        <div id="menu-content" class="row">
+            <div id="menu2" class="col-2 navbar flex-column">
+                <p id="tex-menu" class="text">Menu Messages</p>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Nuevo_Mensaje/" role= "button" ata-toggle="tooltip" data-placement="right" title="Write a new Message."> Write </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "../Leer_Mensajes/" role= "button" ata-toggle="tooltip" data-placement="right" title="Read Your Messages."> Read </a>
+                <a class= "bttn btn btn-vertical btn-outline-success" href= "" role= "button" ata-toggle="tooltip" data-placement="right" title="Chat with us."> Chat </a>
+            </div>
+            <div id="content" class="col-10">
+                <div class="jumbotron">
+                    <div id="chat-example" class="container">
+                        <div id="example"></div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div id="footering" class="row">
+            <div id="foot" class="col-12">
+                <p id="text-foot">Administration ticket system</p>
+            </div>
+        </div>
+        <button  class="btn btn-danger" >Boton rojo</button>
+
+   </div>
+</body>
+</html>

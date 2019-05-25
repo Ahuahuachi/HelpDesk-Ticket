@@ -1,0 +1,109 @@
+#main {
+  align-content: stretch; }
+
+#menu1 {
+  display: flex;
+  position: static;
+  background-color: #00171F;
+  justify-content: flex-end; }
+
+#logo {
+  width: 50px;
+  height: 50px;
+  margin: 5px; }
+
+.btn {
+  margin: 5px;
+  padding: 5px;
+  color: #FFFFFF; }
+
+.bttn {
+  width: 130px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  color: #FFFFFF; }
+
+#menu-content {
+  height: 84vh; }
+
+#menu2 {
+  display: flex;
+  background-color: #003459;
+  justify-content: center;
+  align-content: space-between;
+  height: 84vh; }
+
+#tex-menu {
+  color: #FFFFFF;
+  font-weight: 700; }
+
+#content {
+  display: flex;
+  background-color: #FFFFFF;
+  height: 84vh;
+  justify-content: center; }
+
+.jumbotron {
+  width: 900px;
+  height: 70vh;
+  align-self: center;
+  border-radius: 4px;
+  box-shadow: 0px 10px 20px 0px black;
+  overflow: auto; }
+
+#chat-example {
+  /* Chat containers */
+  /* Darker chat container */
+  /* Clear floats */
+  /* Style images */
+  /* Style the right image */
+  /* Style time text */
+  /* Style time text */ }
+  #chat-example .container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0; }
+  #chat-example .darker {
+    border-color: #ccc;
+    background-color: #ddd; }
+  #chat-example .container::after {
+    content: "";
+    clear: both;
+    display: table; }
+  #chat-example .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%; }
+  #chat-example .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0; }
+  #chat-example .time-right {
+    float: right;
+    color: #aaa; }
+  #chat-example .time-left {
+    float: left;
+    color: #999; }
+
+#write-your-message {
+  height: 50px; }
+
+label {
+  font-size: 15px;
+  font-weight: 700; }
+
+#foot {
+  display: flex;
+  position: static;
+  background-color: #00171F;
+  color: #FFFFFF;
+  justify-content: center; }
+  #foot #text-foot {
+    padding: 5px; }
+
+/*# sourceMappingURL=chat-messages.css.map */
