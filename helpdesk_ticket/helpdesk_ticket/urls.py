@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path , include
 from Mensajes import views
 from tickets import views as tickets_view
+from dashboard import views as dashboard_views
 
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Mensajes/', include ('Mensajes.urls')),
+    path('user/', include ('user.urls')),
+    path('Mensajes/', include ('Mensajes.urls')),
     path('Tickets/', include ('tickets.urls'))
+    path('dashboard/', dashboard_views.get_dashboard),
 ]
 

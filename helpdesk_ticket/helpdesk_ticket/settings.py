@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dashboard',
     'Mensajes',
     'tickets',
     'user',
@@ -80,6 +81,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'USER': 'django',
+        #'PASSWORD': 'django',
+        #'HOST': 'localhost',
+        #'PORT': '3306'
+
     }
 }
 
@@ -121,5 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL= '/Mensajes/'
+LOGIN_REDIRECT_URL= '/dashboard'
+LOGOUT_REDIRECT_URL = '/login'
