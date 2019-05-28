@@ -131,3 +131,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/dashboard'
 LOGOUT_REDIRECT_URL = '/user/login'
+LOGIN_URL = '/user/login'
