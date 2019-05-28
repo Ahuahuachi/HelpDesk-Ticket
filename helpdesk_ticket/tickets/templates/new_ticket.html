@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Help Desk Ticket</title>
+    <link rel="stylesheet" href="{% static '/ticket/css/add-new-tickets.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main" class="container-fluid">
+        <div id="head-menu1" class="row">
+            <div id="menu1" class="col-12 navbar">
+                <img id="logo" class="img" src="{% static '/dashboard/image/help-desk-icon-png-4.png' %}" alt="Logo">
+                <a class="bttn btn btn-primary" href="../menu-messages/index.html" role="button"> Messages </a>
+                <a class="bttn btn btn-primary" href="../technical-tickets/index.html" role="button"> Tickets </a>
+                <a class="bttn btn btn-primary" href="../profile/index.html" role="button"> Profile </a>
+                <a class="bttn btn btn-primary" href="../log-in/index.html" role="button"> Log out </a>
+            </div>
+        </div>
+        <div id="menu-content" class="row">
+            <div id="menu2" class="col-2 navbar flex-column">
+                <p id="tex-menu" class="text">Menu Tickets</p>
+                <a class="bttn btn btn-vertical btn-outline-success" href="../add-new-ticket/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Add new ticket </a>
+                <a class="bttn btn btn-vertical btn-outline-success" href="../dashboard/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Dashboard </a>
+                <a class="bttn btn btn-vertical btn-outline-success" href="../report/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Report </a>
+            </div>
+            <div id="content" class="col-10">
+                <div class="jumbotron">
+                    <div class="container">
+                        {%csrf_token%}
+                        <div id="body-message" class="form-group">
+                            <h3>Create a new ticket</h3>
+                            {{form.as_ul}}
+                            <p><button type="submit" class="btn btn-danger">If you finished, send.</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <form id="information" class="container">
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="user"> User </label>
+                            <input type="text" class="form-control" id="user" placeholder="User">
+                        </div>
+                        <div id="departament" class="form-group col-6">
+                            <label for="departament"> Departament </label>
+                            <select id="input-departament" class="form-control">
+                                <option selected> Choose... </option>
+                                <option> New Business </option>
+                                <option> Partners </option>
+                                <option> Workshop </option>
+                                <option> Project Manager </option>
+                                <option> Administration </option>
+                                <option> IT </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="subject"> Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                        </div>
+                        <div id="type" class="form-group col-6">
+                            <label for="type"> Type </label>
+                            <select id="input-type" class="form-control">
+                                <option selected> Choose... </option>
+                                <option> Hardware </option>
+                                <option> Software </option>
+                                <option> Other </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-row">
+                            <div id="priority" class="container col-12">
+                                <label for="Priority"> Priority </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-3">
+                            <input type="checkbox" aria-label="urgent">
+                            <label for="checkbox"> Urgent </label>
+                        </div>
+                        <div class="form-group col-3">
+                            <input type="checkbox" aria-label="high">
+                            <label for="checkbox"> High </label>
+                        </div>
+                        <div class="form-group col-3">
+                            <input type="checkbox" aria-label="medium">
+                            <label for="checkbox"> Medium </label>
+                        </div>
+                        <div class="form-group col-3">
+                            <input type="checkbox" aria-label="low">
+                            <label for="checkbox"> Low </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="details"> Details </label>
+                            <input id="details-input" type="text" class="form-control" id="details"
+                                placeholder="Details">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="send-file">Select file to send</label>
+                            <input type="file" class="form-control-file" id="send-file">
+                        </div>
+                        <div class="form-group col-6">
+                            <button type="button" class="btn btn-danger btn-lg"> If you finished, send. </button>
+                        </div>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+        <div id="footering" class="row">
+            <div id="foot" class="col-12">
+                <p id="text-foot">Administration ticket system</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

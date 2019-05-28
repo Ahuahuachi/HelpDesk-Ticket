@@ -23,7 +23,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', dashboard_views.get_dashboard),
-    path('accounts/', include('user.urls')),
+    path('user/', include('user.urls')),
     path('admin/', admin.site.urls),
     path('dashboard/', dashboard_views.get_dashboard),
     path('Mensajes/', include('Mensajes.urls')),
