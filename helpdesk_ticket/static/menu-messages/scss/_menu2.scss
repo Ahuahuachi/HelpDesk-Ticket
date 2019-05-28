@@ -1,0 +1,7 @@
+@mixin menu2 {
+    display: flex;
+    background-color: $back4;
+    justify-content: center;
+    align-content: space-between;
+    height: 84vh;
+}

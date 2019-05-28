@@ -1,0 +1,12 @@
+@mixin information {
+    justify-content: space-around;
+    margin: 20px;
+    #priority{
+        display: flex;
+        justify-content: center;
+        font-weight: $font-weight-bold;
+    }
+    #details-input{
+        height: 120px;
+    }
+}

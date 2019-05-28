@@ -23,9 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xz7le%++g0r-(63tf14y)boiqjxknzcwr19vwc#u!@&va(1)jl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+if os.getenv('GAE_APPLICATION', None):
+    DEBUG = True
+
+    ALLOWED_HOSTS = ['*']
+else:
+    DEBUG = False
+
+    ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,17 +83,29 @@ WSGI_APPLICATION = 'helpdesk_ticket.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'USER': 'django',
-        # 'PASSWORD': 'django',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306'
-
+if os.getenv('GAE_APPLICATION', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'django',
+            'USER': 'root',
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': '/cloudsql/helpdesk-ticket:us-central1:helpdesk-ticket:mydb',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'django',
+            'USER': 'root',
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': '127.0.0.1',
+            'PORT': '3307'
+            # 'ENGINE': 'django.db.backends.sqlite3',
+            # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation

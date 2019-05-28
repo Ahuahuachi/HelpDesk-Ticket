@@ -1,0 +1,6 @@
+@mixin menu1 {
+    display: flex;
+    position: static;
+    background-color: $back5;
+    justify-content: flex-end;
+}

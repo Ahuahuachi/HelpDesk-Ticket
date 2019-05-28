@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.min.js"></script>
+    <script src="https://fb.me/react-dom-0.14.0.min.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <style type="text/css">
+   html {
+      width: 100%;
+      height: 100%;
+   }
+
+   body {
+      background: #336699;
+      background: radial-gradient(#003399, #336699);
+   }
+
+   #example {
+      padding: 1rem;
+   }
+   </style>
+    <div id="root"></div>
+    <script type="text/babel">
+      
+      var d = new Date().toLocaleString();
+
+      var ChatMessage = React.createClass({
+     render() {
+        return(
+           <p style={{marginBottom: 0}}>{this.props.message}<br/>
+           <small>{this.props.timestamp}</small></p>
+        );
+     }
+  });
+
+  var ChatMessageHistory = React.createClass({
+     render() {      
+        var createMessage = function(message, index) {
+           var liStyles = {
+              backgroundColor: ( index % 2 == 1 ) ? '#ddd' : '#efefef',
+              padding: '1rem',
+              borderBottom: '1px solid #ddd'
+           };
+           
+           return <li style={liStyles}><ChatMessage message={message.message} timestamp={message.timestamp} /></li>
+        };
+           
+        var ulStyles = {
+           listStyle: 'none',
+           margin: 0,
+           padding: 0
+        };
+        
+        return <ul style={ulStyles}>{this.props.messages.map(createMessage)}</ul>;
+     }
+  });   
+     
+  var MESSAGES = [
+     { message: 'Bienvenido al Chat', timestamp: d }                                   
+  ];
+                                             
+  var ChatWindow = React.createClass({
+     getInitialState() {
+        return {
+           messages: MESSAGES,
+           inputText: ''
+        };
+     },
+     handleSubmit(e) {
+        e.preventDefault();
+        
+        var nextMessages = this.state.messages.concat([{ message: this.state.inputText, timestamp: d }]);
+        var nextInputText = '';
+        this.setState({ messages: nextMessages, inputText: nextInputText });
+     },
+     onChange(e) {
+        this.setState({inputText: e.target.value});
+     },
+     render() {
+        var windowStyles = {
+           maxWidth: '40em',
+           margin: '1rem auto'
+        };
+        
+        var formStyles = {
+           display: 'flex',
+        };
+        
+        var inputStyles = {
+           flex: '1 auto'
+        };
+        
+        var btnStyles = {
+           backgroundColor: '#00d8ff',
+           border: 'none',
+           color: '#336699',
+           textTransform: 'uppercase',
+           letterSpacing: '0.05em',
+           fontWeight: 'bold',
+           fontSize: '0.8em'
+        };
+        
+        return (
+           <div style={windowStyles}>
+              <ChatMessageHistory messages={this.state.messages} />
+              <form style={formStyles} onSubmit={this.handleSubmit}>
+                 <input style={inputStyles} type="text" onChange={this.onChange} value={this.state.inputText} />
+                 <button style={btnStyles}>Send</button>
+              </form>
+           </div>
+        );
+     }
+  });
+
+  ReactDOM.render(
+     <ChatWindow />,
+     document.getElementById('example')
+  );
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+
+    <div id="example"></div>
+  </body>
+</html>
