@@ -9,5 +9,5 @@ urlpatterns = [
     path('Leer_Mensajes/', views.get_Mensaje),
     path('Tickets/<int:ticket_id>', tickets_views.SingleTicket),
     path('Nuevo_Mensaje/', views.create_Mensaje),
-    path('Chat_Mensaje/',views.get_Chat)
+    path('Chat_Mensaje/', views.get_Chat)
 ]

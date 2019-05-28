@@ -1,74 +1,90 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Help Desk Ticket</title>
     <link rel="stylesheet" href="{% static "/dashboard/css/technical.css" %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
+
 <body>
-   <div id="main" class="container-fluid">
+    <div id="main" class="container-fluid">
         <div id="head-menu1" class="row">
             <div id="menu1" class="col-12 navbar">
                 <img id="logo" class="img" src="{% static "/dashboard/image/help-desk-icon-png-4.png" %}" alt="Logo">
-                <a class= "bttn btn btn-primary" href= "../Mensajes/Leer_Mensajes" role= "button" > Messages </a>
-                <a class= "bttn btn btn-primary" href= "../technical-tickets/index.html" role= "button" > Tickets </a>
-                <a class= "bttn btn btn-primary" href= "../profile/index.html" role= "button" > Profile </a>
-                <a class= "bttn btn btn-primary" href= "../log-in/index.html" role= "button" > Log out </a>
+                <!-- <a class="bttn btn btn-primary" href="../Mensajes/Leer_Mensajes" role="button"> Messages </a> -->
+                <a class="bttn btn btn-primary" href="../dashboard" role="button"> Tickets </a>
+                <!-- <a class="bttn btn btn-primary" href="../profile/index.html" role="button"> Profile </a> -->
+                <a class="bttn btn btn-primary" href="../accounts/logout" role="button"> Log out </a>
             </div>
         </div>
         <div id="menu-content" class="row">
             <div id="menu2" class="col-2 navbar flex-column">
                 <p id="tex-menu" class="text">Menu Tickets</p>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../add-new-ticket/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Add new ticket </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../dashboard/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Dashboard </a>
-                <a class= "bttn btn btn-vertical btn-outline-success" href= "../report/index.html" role= "button" ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Report 
+                <a class="bttn btn btn-vertical btn-outline-success" href="../add-new-ticket/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Add new ticket </a>
+                <a class="bttn btn btn-vertical btn-outline-success" href="../dashboard/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Dashboard </a>
+                <a class="bttn btn btn-vertical btn-outline-success" href="../report/index.html" role="button"
+                    ata-toggle="tooltip" data-placement="right" title="Descriptive text."> Report
                 </a>
             </div>
             <div id="content" class="col-10">
-                <div id="container-dashboard" class="container-fluid" >
+                <div id="container-dashboard" class="container-fluid">
                     <div id="dashboard" class="row">
-                        {% for s in status %} 
+                        {% for s in status %}
                         <div class="col-4">
                             <div class="jumbotron">
                                 <div class="container">
-                                   
+
                                     <h1 class="display-6">{{ s.name }}</h1>
-                                    <p class="lead">These are the <span class="badge badge-pill badge-info"> {{ s.name }} </span> tickets.</p>
+                                    <p class="lead">These are the <span class="badge badge-pill badge-info">
+                                            {{ s.name }} </span> tickets.</p>
                                     <div id="dasboard-scroll" class="list-group">
                                         {% for t in s.tickets %}
-                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <h4 class="mb-1"><strong>Priority:</strong><span class="small">{{ t.fk_priority }}</span></h4>
-                                            <h4 class="mb-1"><strong>Date: </strong><span class="small">{{ t.created }}</span></h4>
-                                            <h4 class="mb-1"><strong>Requester: </strong><span class="small">{{ t.fk_requester }}</span></h4>
-                                            <h4 class="mb-1"><strong>Agent: </strong><span class="small">{{ t.fk_agent }}</span></h4>
-                                            <h4 class="mb-1"><strong>Subject: </strong><span class="small">{{ t.subject }}</span></h4>
-                                            <h4 class="mb-1"><strong>Description:</strong><span class="small">{{ t.description }}</span></h4>  
-                                            <h4 class="mb-1"><strong>Attachments: </strong><span class="small">{{ t.fk_attachments }}</span></h4>
-                                            </a>
+                                        <a href="/Tickets/{{ t.id }}"
+                                            class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <h4 class="mb-1"><strong>Priority:</strong><span
+                                                    class="small">{{ t.fk_priority }}</span></h4>
+                                            <h4 class="mb-1"><strong>Date: </strong><span
+                                                    class="small">{{ t.created }}</span></h4>
+                                            <h4 class="mb-1"><strong>Requester: </strong><span
+                                                    class="small">{{ t.fk_requester }}</span></h4>
+                                            <h4 class="mb-1"><strong>Agent: </strong><span
+                                                    class="small">{{ t.fk_agent }}</span></h4>
+                                            <h4 class="mb-1"><strong>Subject: </strong><span
+                                                    class="small">{{ t.subject }}</span></h4>
+                                            <h4 class="mb-1"><strong>Description:</strong><span
+                                                    class="small">{{ t.description }}</span></h4>
+                                            <h4 class="mb-1"><strong>Attachments: </strong><span
+                                                    class="small">{{ t.fk_attachments }}</span></h4>
+                                        </a>
                                         {% endfor %}
                                         {% if not s.tickets %}
-                                            <h1 class="display-4">Sorry, not more tickets in this list.</h1>
+                                        <h1 class="display-4">Sorry, not more tickets in this list.</h1>
                                         {% endif %}
                                     </div>
-                                   
-                                </div>        
+
+                                </div>
+                            </div>
+
                         </div>
-                        
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
-    </div>
         <div id="footering" class="row">
             <div id="foot" class="col-12">
                 <p id="text-foot">Administration ticket system</p>
             </div>
         </div>
-   </div>
+    </div>
 </body>
+
 </html>
