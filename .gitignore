@@ -1,4 +1,9 @@
 .vscode
-helpdesk_ticket/db.sqlite3
+db.sqlite3
 **__pycache__/
 *.py[cod]
+.env
+
+# GCP
+.deploy/
+app.yaml
